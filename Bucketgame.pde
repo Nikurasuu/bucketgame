@@ -17,9 +17,18 @@ int food3a;
 
 int score;
 
+PImage bucket;
+PImage shrimp;
+PImage pumpkin;
+PImage coffee;
+
 void setup() {
   size(1280, 720, P2D);
   ((PGraphicsOpenGL)g).textureSampling(3);
+  bucket = loadImage("images/bucket.png");
+  pumpkin = loadImage("images/pumpkin.png");
+  coffee = loadImage("images/coffee.png");
+  shrimp = loadImage("images/shrimp.png");
   frameRate(250);
   noStroke();
   fill(255);
@@ -46,10 +55,11 @@ void draw() {
   textSize(14);
   textAlign(LEFT);
   text("Score: " + score, 10, 20);
+  textAlign(LEFT);
+  text("FPS: " + str(frameRate), 10, 40);
   textAlign(RIGHT);
   text("Niklas Malkusch", width - 10, 20);
 
-  PImage bucket = loadImage("images/bucket.png");
   beginShape();
   texture(bucket);
   vertex(eimerX, height - 125, 0, 0);
@@ -58,7 +68,6 @@ void draw() {
   vertex(eimerX, height - 25, 0, 32);
   endShape();
 
-  PImage pumpkin = loadImage("images/pumpkin.png");
   beginShape();
   texture(pumpkin);
   vertex(food1x, food1y, 0, 0);
@@ -67,7 +76,6 @@ void draw() {
   vertex(food1x, food1y + 100, 0, 32);
   endShape();
 
-  PImage coffee = loadImage("images/coffee.png");
   beginShape();
   texture(coffee);
   vertex(food2x, food2y, 0, 0);
@@ -76,7 +84,6 @@ void draw() {
   vertex(food2x, food2y + 100, 0, 32);
   endShape();
 
-  PImage shrimp = loadImage("images/shrimp.png");
   beginShape();
   texture(shrimp);
   vertex(food3x, food3y, 0, 0);
